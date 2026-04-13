@@ -185,9 +185,9 @@
   ],
   "special": [
     {
-      "code": "UNKN",
-      "cn": "未知旅人",
-      "intro": "你更像故事之外的未知旅人。",
+      "code": "ROVER",
+      "cn": "漂泊者",
+      "intro": "你更像漂泊者。",
       "desc": "当最接近的角色匹配度不足时，说明你更像鸣潮世界里尚未定型的那种存在。你的路线可能更加难以预测。",
       "trigger": "Fallback when best match similarity < 60%"
     }
