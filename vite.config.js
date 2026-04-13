@@ -1,3 +1,8 @@
+import { defineConfig } from 'vite'   // 👈 必须加
+
 export default defineConfig({
-  base: './',   // 👈 改这里
+  base: './',
+  build: {
+    outDir: 'dist',
+  },
 })
