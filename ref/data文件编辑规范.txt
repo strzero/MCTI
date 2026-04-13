@@ -1,0 +1,58 @@
+定制你自己的测试
+所有测试内容都在 data/ 目录下，修改 JSON 文件即可定制，无需改动代码。
+
+修改题目
+编辑 data/questions.json，每道题的结构：
+
+{
+  "id": "q1",
+  "dim": "S1",
+  "text": "你的题目文字",
+  "options": [
+    { "label": "选项A", "value": 1 },
+    { "label": "选项B", "value": 2 },
+    { "label": "选项C", "value": 3 }
+  ]
+}
+dim 指定该题属于哪个维度
+value 分值：1=低, 2=中, 3=高
+每个维度需要恰好2道题
+添加新人格类型
+编辑 data/types.json，在 standard 数组中添加：
+
+{
+  "code": "YOUR",
+  "pattern": "HHH-HMH-MHH-HHH-MHM",
+  "cn": "你的类型名",
+  "intro": "一句话简介",
+  "desc": "详细描述..."
+}
+pattern 是15个字母的L/M/H组合（按维度顺序：S1-S3, E1-E3, A1-A3, Ac1-Ac3, So1-So3），用 - 分隔每个模型。
+
+调整评分参数
+编辑 data/config.json：
+
+{
+  "scoring": {
+    "levelThresholds": { "L": [2, 3], "M": [4, 4], "H": [5, 6] },
+    "fallbackThreshold": 60
+  }
+}
+修改主题样式
+编辑 src/style.css 顶部的 CSS 变量：
+
+:root {
+  --bg: #f0f4f1;
+  --accent: #4c6752;
+  /* ... */
+}
+评分算法
+求和：每维度2题分值相加（范围2-6）
+分级：≤3 → L（低），4 → M（中），≥5 → H（高）
+向量化：L=1, M=2, H=3，生成15维数值向量
+匹配：计算用户向量与每种类型的曼哈顿距离
+排名：距离升序 → 精准命中降序 → 相似度降序
+特殊覆盖：正常匹配 > 傻乐者兜底（<60%）
+详见 数据分析报告。
+
+

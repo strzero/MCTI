@@ -1,0 +1,461 @@
+
+
+# 一、总体结构（必须遵守）
+
+项目数据目录结构：
+
+```
+data/
+  config.json
+  dimensions.json
+  questions.json
+  types.json
+```
+
+---
+
+# 二、config.json（全局配置）
+
+## 完整结构
+
+```json
+{
+  "scoring": {
+    "levelThresholds": {
+      "L": [2, 3],
+      "M": [4, 4],
+      "H": [5, 6]
+    },
+    "levelNumeric": {
+      "L": 1,
+      "M": 2,
+      "H": 3
+    },
+    "maxDistance": 30,
+    "fallbackThreshold": 60
+  },
+  "display": {
+    "title": "测试标题",
+    "subtitle": "副标题",
+    "author": "作者信息",
+    "funNote": "普通提示文案",
+    "funNoteSpecial": "特殊提示文案"
+  },
+  "drinkGate": {
+    "questionId": "题目ID",
+    "triggerValue": 3,
+    "drunkTriggerValue": 2
+  }
+}
+```
+
+---
+
+## 字段说明（严格）
+
+### scoring（评分系统）
+
+| 字段                | 类型     | 必填 | 说明             |
+| ----------------- | ------ | -- | -------------- |
+| levelThresholds   | object | ✅  | 每个等级对应的分数区间    |
+| levelNumeric      | object | ✅  | 等级转数值          |
+| maxDistance       | number | ✅  | 最大曼哈顿距离（用于归一化） |
+| fallbackThreshold | number | ✅  | 触发兜底人格阈值（百分比）  |
+
+#### levelThresholds（必须符合）
+
+```json
+"L": [2, 3],
+"M": [4, 4],
+"H": [5, 6]
+```
+
+⚠️ 说明：
+
+* 每个维度 = 2题 → 分数范围 2~6
+* 必须覆盖所有可能值
+* 不允许重叠或缺失
+
+---
+
+### display（UI展示）
+
+| 字段             | 类型     | 必填 | 说明   |
+| -------------- | ------ | -- | ---- |
+| title          | string | ✅  | 标题   |
+| subtitle       | string | ✅  | 副标题  |
+| author         | string | ❌  | 作者   |
+| funNote        | string | ❌  | 普通提示 |
+| funNoteSpecial | string | ❌  | 特殊提示 |
+
+---
+
+### drinkGate（特殊机制）
+
+| 字段                | 类型     | 必填 | 说明     |
+| ----------------- | ------ | -- | ------ |
+| questionId        | string | ✅  | 关联题目ID |
+| triggerValue      | number | ✅  | 触发值    |
+| drunkTriggerValue | number | ✅  | 醉酒触发值  |
+
+---
+
+# 三、dimensions.json（维度系统）
+
+## 完整结构
+
+```json
+{
+  "models": {
+    "S": {
+      "cn": "中文名",
+      "en_approx": "英文近似",
+      "dimensions": ["S1", "S2", "S3"]
+    }
+  },
+  "order": [
+    "S1", "S2", ..., "So3"
+  ],
+  "definitions": {
+    "S1": {
+      "name": "维度名称",
+      "model": "所属模型",
+      "levels": {
+        "L": "描述",
+        "M": "描述",
+        "H": "描述"
+      }
+    }
+  }
+}
+```
+
+---
+
+## 关键约束（非常重要）
+
+### 1️⃣ models
+
+必须包含五大模型：
+
+```
+S   自我
+E   情感
+A   态度
+Ac  行动
+So  社交
+```
+
+每个模型必须：
+
+* 有且仅有3个维度
+* 维度ID必须唯一
+
+---
+
+### 2️⃣ order（核心！）
+
+```json
+[
+  "S1","S2","S3",
+  "E1","E2","E3",
+  "A1","A2","A3",
+  "Ac1","Ac2","Ac3",
+  "So1","So2","So3"
+]
+```
+
+⚠️ 作用：
+
+* 决定 pattern 顺序
+* 决定向量计算顺序
+* 必须和 types.json 完全一致
+
+---
+
+### 3️⃣ definitions
+
+每个维度必须定义：
+
+| 字段       | 必填 |
+| -------- | -- |
+| name     | ✅  |
+| model    | ✅  |
+| levels.L | ✅  |
+| levels.M | ✅  |
+| levels.H | ✅  |
+
+---
+
+# 四、questions.json（题库）
+
+## 完整结构
+
+```json
+{
+  "main": [
+    {
+      "id": "q1",
+      "dim": "S1",
+      "text": "题目",
+      "options": [
+        { "label": "A", "value": 1 },
+        { "label": "B", "value": 2 },
+        { "label": "C", "value": 3 }
+      ]
+    }
+  ],
+  "special": []
+}
+```
+
+---
+
+## 关键规则（必须满足）
+
+### 1️⃣ 每个维度必须：
+
+```
+恰好 2 道题
+```
+
+总题数必须：
+
+```
+15维 × 2 = 30题
+```
+
+---
+
+### 2️⃣ value规则
+
+| 值 | 含义   |
+| - | ---- |
+| 1 | L（低） |
+| 2 | M（中） |
+| 3 | H（高） |
+
+⚠️ 不允许其他值
+
+---
+
+### 3️⃣ dim字段
+
+必须：
+
+* 存在于 dimensions.order 中
+* 拼写完全一致
+
+---
+
+### 4️⃣ id唯一
+
+所有题目：
+
+```
+id 必须全局唯一
+```
+
+---
+
+# 五、types.json（人格类型）
+
+## 完整结构
+
+```json
+{
+  "standard": [
+    {
+      "code": "CTRL",
+      "pattern": "HHH-HMH-MHH-HHH-MHM",
+      "cn": "名称",
+      "intro": "一句话",
+      "desc": "详细描述"
+    }
+  ],
+  "special": [
+    {
+      "code": "HHHH",
+      "cn": "兜底人格",
+      "intro": "简介",
+      "desc": "描述",
+      "trigger": "Fallback when best match similarity < 60%",
+      "note": "说明"
+    }
+  ]
+}
+```
+
+---
+
+## 关键规则（极其重要）
+
+### 1️⃣ pattern格式
+
+```
+共15位字符
+只允许 L / M / H
+按模型分组，用 "-" 分隔
+```
+
+结构：
+
+```
+S1 S2 S3 - E1 E2 E3 - A1 A2 A3 - Ac1 Ac2 Ac3 - So1 So2 So3
+```
+
+示例：
+
+```
+HHH-HMH-MHH-HHH-MHM
+```
+
+---
+
+### 2️⃣ pattern必须满足
+
+* 长度必须 = 15
+* 顺序必须 = dimensions.order
+* 每位必须是 L/M/H
+
+---
+
+### 3️⃣ standard类型字段
+
+| 字段      | 必填 |
+| ------- | -- |
+| code    | ✅  |
+| pattern | ✅  |
+| cn      | ✅  |
+| intro   | ✅  |
+| desc    | ✅  |
+
+---
+
+### 4️⃣ special类型（兜底）
+
+必须包含：
+
+| 字段      | 必填 |
+| ------- | -- |
+| code    | ✅  |
+| cn      | ✅  |
+| intro   | ✅  |
+| desc    | ✅  |
+| trigger | ✅  |
+
+⚠️ special **没有 pattern**
+
+---
+
+# 六、评分算法（必须实现一致）
+
+## 1️⃣ 每个维度得分
+
+```
+2题 × (1~3) → 总分 2~6
+```
+
+---
+
+## 2️⃣ 等级映射
+
+```
+≤3 → L
+=4 → M
+≥5 → H
+```
+
+---
+
+## 3️⃣ 向量化
+
+```
+L = 1
+M = 2
+H = 3
+```
+
+生成：
+
+```
+15维向量
+```
+
+---
+
+## 4️⃣ 匹配算法
+
+### 曼哈顿距离：
+
+```
+distance = Σ |user[i] - type[i]|
+```
+
+---
+
+## 5️⃣ 相似度（建议实现）
+
+```
+similarity = (1 - distance / maxDistance) * 100
+```
+
+---
+
+## 6️⃣ 排序规则
+
+按优先级：
+
+1. 距离小
+2. 命中维度多
+3. 相似度高
+
+---
+
+## 7️⃣ 兜底机制
+
+当：
+
+```
+最佳匹配 similarity < fallbackThreshold
+```
+
+→ 返回 special 类型（HHHH）
+
+---
+
+# 七、隐含强校验（必须做）
+
+否则会出 bug：
+
+### ✔ 校验清单
+
+* [ ] 维度数量必须 15
+* [ ] 每维度题目必须 2
+* [ ] pattern 必须 15 位
+* [ ] order 与 pattern 一致
+* [ ] 所有 dim 存在
+* [ ] value ∈ {1,2,3}
+* [ ] types 至少一个 standard
+* [ ] 必须存在 fallback 类型
+
+---
+
+# 八、最容易出错的点（重点）
+
+1. ❌ pattern顺序错 → 全部匹配错误
+2. ❌ 某维度题数 ≠ 2 → 分数异常
+3. ❌ 忘记 fallback → 无结果
+4. ❌ maxDistance不匹配 → 相似度错误
+5. ❌ dimensions.order 改了但 types没改
+
+---
+
+# 九、一句话总结（给另一个AI）
+
+这是一个：
+
+👉 **15维人格测试系统**
+👉 **每维2题 → 三值评分 → L/M/H → 向量匹配 → 曼哈顿距离分类**
+
+---
