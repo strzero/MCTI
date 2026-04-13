@@ -103,9 +103,9 @@ export function determineResult(userLevels, dimOrder, standardTypes, specialType
   }
 
   // 傻乐者兜底
-  if (best.similarity < 60 && hhhh) {
+  if (best.similarity < 60 && rover) {
     return {
-      primary: { ...hhhh, similarity: best.similarity, exact: best.exact },
+      primary: { ...rover, similarity: best.similarity, exact: best.exact },
       secondary: best,
       rankings,
       mode: 'fallback',
