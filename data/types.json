@@ -1,188 +1,33 @@
 {
   "standard": [
-    {
-      "code": "AIMIS",
-      "pattern": "HMH-MMM-HMH-HHH-MHM",
-      "cn": "爱弥斯",
-      "intro": "你像夜空里的星辉，幽灵般闪耀却又不易被看见。",
-      "desc": "你的行动节奏充满活力，喜欢在混乱中找到自己的位置。你对世界保持好奇，也愿意用温柔的方式影响身边的人。"
-    },
-    {
-      "code": "ANKE",
-      "pattern": "HHH-HMH-MHH-HMH-MHH",
-      "cn": "安可",
-      "intro": "你像一首彩色童话，总能把冒险变成欢笑。",
-      "desc": "你喜欢把世界当成舞台，愿意陪伴别人一起玩耍。你的热情让队友安心，但你也懂得什么时候该收起表演，认真面对挑战。"
-    },
-    {
-      "code": "AUGUSTA",
-      "pattern": "HHH-HHH-MHH-HHH-MLH",
-      "cn": "奥古斯塔",
-      "intro": "你是战场上的裁判和统帅，力量与原则并存。",
-      "desc": "你喜欢掌控局势，遵循规则，但并非僵硬。你以身作则，在压力下依旧保持冷静，是别人可靠的参照。"
-    },
-    {
-      "code": "BAIZHI",
-      "pattern": "MHM-MHL-MHH-HMH-MLM",
-      "cn": "白芷",
-      "intro": "你像实验室里的灯火，理性地探求真相。",
-      "desc": "你习惯把事物拆解成可控的部分，不轻易被情绪牵着走。你最重要的是找到事实与秩序的交汇点。"
-    },
-    {
-      "code": "BOLING",
-      "pattern": "MMH-MMH-HMH-MHM-MLH",
-      "cn": "卜灵",
-      "intro": "你像一只敏锐的耳朵，能听见别人听不到的频率。",
-      "desc": "你的洞察力细腻，喜欢从细节里发现可能。你与他人的连接不像表面那样直白，但你很会把握彼此的节奏。"
-    },
-    {
-      "code": "BRANT",
-      "pattern": "HMH-MMH-HHH-HHH-MHH",
-      "cn": "布兰特",
-      "intro": "你是一阵燃烧的火焰，热情而难以预料。",
-      "desc": "你喜欢冒险和自由，不愿让条条框框限制自己。你能带动团队冲破桎梏，但也需要留意何时该稳住火势。"
-    },
-    {
-      "code": "CHANGLI",
-      "pattern": "HHH-HMH-HMH-HHH-MLH",
-      "cn": "长离",
-      "intro": "你像棋盘上的高手，总在最远的地方布置未来。",
-      "desc": "你的决策稳重而有条理，既能保持冷静也能在关键时刻果断出击。你在行动前会先想到对手的下一步。"
-    },
-    {
-      "code": "CHIXIA",
-      "pattern": "HHH-MMH-HHH-HHH-MLM",
-      "cn": "炽霞",
-      "intro": "你是一把熊熊燃烧的火炬，温暖而可靠。",
-      "desc": "你愿意冲在前面保护伙伴，行动迅速且充满责任感。你对团队的稳定贡献远超过你的战斗表现。"
-    },
-    {
-      "code": "CHOUYUAN",
-      "pattern": "HHH-MHL-LHH-HHH-LLH",
-      "cn": "仇远",
-      "intro": "你像孤独的剑客，沉默间蕴含坚定。",
-      "desc": "你倾向于独自承担，不喜欢过多的社交噪音。你的行动节奏稳重，目标明确，冲突时你更愿意用实力说话。"
-    },
-    {
-      "code": "CHUN",
-      "pattern": "MHH-MMH-MHH-HMH-MLH",
-      "cn": "椿",
-      "intro": "你是一朵红色的藤蔓，随性而危险。",
-      "desc": "你喜欢顺着命运的牵引游走，不愿被任何规则束缚。你对未知有天然的好奇，也能在混乱中找到美感。"
-    },
-    {
-      "code": "DANJIN",
-      "pattern": "HHH-MHH-HMH-HHH-MMH",
-      "cn": "丹瑾",
-      "intro": "你是一柄复仇之刃，冷峻而坚定。",
-      "desc": "你的目标鲜明，行动果断。你愿意为了正义和内心的信念坚持到底，即便道路充满荆棘。"
-    },
-    {
-      "code": "DENGDENG",
-      "pattern": "MHH-MMM-MHH-HMH-MHM",
-      "cn": "灯灯",
-      "intro": "你像一盏温柔的光，能驱散迷惘。",
-      "desc": "你乐于帮助周围的人，用亲切的方式把情绪和任务都照亮。你的社交热情让队友感到安心。"
-    },
-    {
-      "code": "FEIBI",
-      "pattern": "MMH-MHM-MMH-HMH-MLH",
-      "cn": "菲比",
-      "intro": "你是虚空里的祈光，温柔而坚定。",
-      "desc": "你有温度，善于传递信念。你在团队中常常是稳定的支持者，让人觉得安全。"
-    },
-    {
-      "code": "FLOLO",
-      "pattern": "MHM-MHL-LMH-MHM-MLM",
-      "cn": "弗洛洛",
-      "intro": "你像一段哀乐，忧伤里仍有韵味。",
-      "desc": "你情绪复杂，内心深处有一股难以言说的孤独。你不怕表达自己的真实，但也会默默承受。"
-    },
-    {
-      "code": "JIYAN",
-      "pattern": "HHH-HMH-MHH-HHH-MHM",
-      "cn": "忌炎",
-      "intro": "你像雷霆与坚定并存的守卫。",
-      "desc": "你行动迅捷，判断果断。你对正义有强烈的敏感，遇到威胁时会毫不犹豫地出手。"
-    },
-    {
-      "code": "JIABELINA",
-      "pattern": "HHH-MHH-HHH-HHH-MHH",
-      "cn": "嘉贝莉娜",
-      "intro": "你是一名炼狱猎人，冷冽而不留情。",
-      "desc": "你习惯独来独往，追求强度与效率。你会把危险当作试金石，而不是阻碍。"
-    },
-    {
-      "code": "JIANXIN",
-      "pattern": "HHH-MMH-HHH-HMH-MLM",
-      "cn": "鉴心",
-      "intro": "你是一把练到极致的利剑，专注且果决。",
-      "desc": "你做事认真，忍耐力强。你在团队中既能担当冲锋，也能安稳守护。"
-    },
-    {
-      "code": "JINXI",
-      "pattern": "HHH-MMH-HHH-HHH-MLH",
-      "cn": "今汐",
-      "intro": "你像春光拂面，温柔里带着力量。",
-      "desc": "你承载着责任，愿意用自己的温度影响他人。你既有领袖气质，也保留着柔软。"
-    },
-    {
-      "code": "KAKARO",
-      "pattern": "HHL-MMH-MHH-HHH-LMH",
-      "cn": "卡卡罗",
-      "intro": "你是一名冷静的雇佣者，效率高于情绪。",
-      "desc": "你把目标放在首位，不喜欢无谓的感情纠葛。你擅长在复杂局势中保持清晰。"
-    },
-    {
-      "code": "KATI",
-      "pattern": "MHH-MHM-HMH-HHM-MLH",
-      "cn": "卡提希娅",
-      "intro": "你像优雅的棋手，善于隐藏真意。",
-      "desc": "你在光鲜外表下常常有深层谋划。你了解权力与美学，也懂得何时出手。"
-    },
-    {
-      "code": "KANTE",
-      "pattern": "MHM-MHH-HMH-MHM-MLH",
-      "cn": "坎特蕾拉",
-      "intro": "你是一片梦幻的幻海，危险而迷人。",
-      "desc": "你的感受复杂，喜欢把现实与幻想融在一起。你既能捕捉情绪，又能用它们制造力量。"
-    },
-    {
-      "code": "KOLETA",
-      "pattern": "MHM-MHH-HHH-HHH-MMM",
-      "cn": "珂莱塔",
-      "intro": "你是一位优雅的策士，风度中带着决断。",
-      "desc": "你善于用美学和策略塑造局势。你会让自己的每一步都充满目的性。"
-    },
-    {
-      "code": "LINNAI",
-      "pattern": "MHH-MMH-MHH-HMH-MHH",
-      "cn": "琳奈",
-      "intro": "你像绚烂的颜料，热闹而自信。",
-      "desc": "你喜欢把生活变成一场表演，用色彩和速度让每个瞬间都鲜明。你不怕吸引目光。"
-    },
-    {
-      "code": "LINGYANG",
-      "pattern": "HMH-MHM-HHH-HMH-MHH",
-      "cn": "凌阳",
-      "intro": "你是一道热烈的光，真诚而奔放。",
-      "desc": "你会把温暖带给他人，行动上也充满热忱。你愿意为信念踏上陌路。"
-    },
-    {
-      "code": "LUPA",
-      "pattern": "HHH-MHH-HHH-HHH-MMH",
-      "cn": "露帕",
-      "intro": "你是一只燃烧的战狼，热血且无畏。",
-      "desc": "你热衷于竞技与胜利，喜欢拼尽全力。你把每场战斗都当成证明自己的机会。"
-    }
+    {"code": "AIMIS", "pattern": "HMH-MMM-HMH-HHH-MHM", "cn": "爱弥斯", "intro": "你像夜空里的星辉，幽灵般闪耀却又不易被看见。", "desc": "你的行动节奏充满活力，喜欢在混乱中找到自己的位置。你对世界保持好奇，也愿意用温柔的方式影响身边的人。"},
+    {"code": "ANKE", "pattern": "HHH-HMH-MHH-HMH-MHH", "cn": "安可", "intro": "你像一首彩色童话，总能把冒险变成欢笑。", "desc": "你喜欢把世界当成舞台，愿意陪伴别人一起玩耍。你的热情让队友安心，但你也懂得什么时候该收起表演，认真面对挑战。"},
+    {"code": "AUGUSTA", "pattern": "HHH-HHH-MHH-HHH-MLH", "cn": "奥古斯塔", "intro": "你是战场上的裁判和统帅，力量与原则并存。", "desc": "你喜欢掌控局势，遵循规则，但并非僵硬。你以身作则，在压力下依旧保持冷静，是别人可靠的参照。"},
+    {"code": "BAIZHI", "pattern": "MHM-MHL-MHH-HMH-MLM", "cn": "白芷", "intro": "你像实验室里的灯火，理性地探求真相。", "desc": "你习惯把事物拆解成可控的部分，不轻易被情绪牵着走。你最重要的是找到事实与秩序的交汇点。"},
+    {"code": "BOLING", "pattern": "MMH-MMH-HMH-MHM-MLH", "cn": "卜灵", "intro": "你像一只敏锐的耳朵，能听见别人听不到的频率。", "desc": "你的洞察力细腻，喜欢从细节里发现可能。你与他人的连接不像表面那样直白，但你很会把握彼此的节奏。"},
+    {"code": "BRANT", "pattern": "HMH-MMH-HHH-HHH-MHH", "cn": "布兰特", "intro": "你是一阵燃烧的火焰，热情而难以预料。", "desc": "你喜欢冒险和自由，不愿让条条框框限制自己。你能带动团队冲破桎梏，但也需要留意何时该稳住火势。"},
+    {"code": "CHANGLI", "pattern": "HHH-HMH-HMH-HHH-MLH", "cn": "长离", "intro": "你像棋盘上的高手，总在最远的地方布置未来。", "desc": "你的决策稳重而有条理，既能保持冷静也能在关键时刻果断出击。你在行动前会先想到对手的下一步。"},
+    {"code": "CHIXIA", "pattern": "HHH-MMH-HHH-HHH-MLM", "cn": "炽霞", "intro": "你是一把熊熊燃烧的火炬，温暖而可靠。", "desc": "你愿意冲在前面保护伙伴，行动迅速且充满责任感。你对团队的稳定贡献远超过你的战斗表现。"},
+    {"code": "CHOUYUAN", "pattern": "HHH-MHL-LHH-HHH-LLH", "cn": "仇远", "intro": "你像孤独的剑客，沉默间蕴含坚定。", "desc": "你倾向于独自承担，不喜欢过多的社交噪音。你的行动节奏稳重，目标明确，冲突时你更愿意用实力说话。"},
+    {"code": "CHUN", "pattern": "MHH-MMH-MHH-HMH-MLH", "cn": "椿", "intro": "你是一朵红色的藤蔓，随性而危险。", "desc": "你喜欢顺着命运的牵引游走，不愿被任何规则束缚。你对未知有天然的好奇，也能在混乱中找到美感。"},
+    {"code": "DANJIN", "pattern": "HHH-MHH-HMH-HHH-MMH", "cn": "丹瑾", "intro": "你是一柄复仇之刃，冷峻而坚定。", "desc": "你的目标鲜明，行动果断。你愿意为了正义和内心的信念坚持到底，即便道路充满荆棘。"},
+    {"code": "DENGDENG", "pattern": "MHH-MMM-MHH-HMH-MHM", "cn": "灯灯", "intro": "你像一盏温柔的光，能驱散迷惘。", "desc": "你乐于帮助周围的人，用亲切的方式把情绪和任务都照亮。你的社交热情让队友感到安心。"},
+    {"code": "FEIBI", "pattern": "MMH-MHM-MMH-HMH-MLH", "cn": "菲比", "intro": "你是虚空里的祈光，温柔而坚定。", "desc": "你有温度，善于传递信念。你在团队中常常是稳定的支持者，让人觉得安全。"},
+    {"code": "FLOLO", "pattern": "MHM-MHL-LMH-MHM-MLM", "cn": "弗洛洛", "intro": "你像一段哀乐，忧伤里仍有韵味。", "desc": "你情绪复杂，内心深处有一股难以言说的孤独。你不怕表达自己的真实，但也会默默承受。"},
+    {"code": "JIYAN", "pattern": "HHH-HMH-MHH-HHH-MHM", "cn": "忌炎", "intro": "你像雷霆与坚定并存的守卫。", "desc": "你行动迅捷，判断果断。你对正义有强烈的敏感，遇到威胁时会毫不犹豫地出手。"},
+    {"code": "JIABELINA", "pattern": "HHH-MHH-HHH-HHH-MHH", "cn": "嘉贝莉娜", "intro": "你是一名炼狱猎人，冷冽而不留情。", "desc": "你习惯独来独往，追求强度与效率。你会把危险当作试金石，而不是阻碍。"},
+    {"code": "JIANXIN", "pattern": "HHH-MMH-HHH-HMH-MLM", "cn": "鉴心", "intro": "你是一把练到极致的利剑，专注且果决。", "desc": "你做事认真，忍耐力强。你在团队中既能担当冲锋，也能安稳守护。"},
+    {"code": "JINXI", "pattern": "HHH-MMH-HHH-HHH-MLH", "cn": "今汐", "intro": "你像春光拂面，温柔里带着力量。", "desc": "你承载着责任，愿意用自己的温度影响他人。你既有领袖气质，也保留着柔软。"},
+    {"code": "KAKARO", "pattern": "HHL-MMH-MHH-HHH-LMH", "cn": "卡卡罗", "intro": "你是一名冷静的雇佣者，效率高于情绪。", "desc": "你把目标放在首位，不喜欢无谓的感情纠葛。你擅长在复杂局势中保持清晰。"},
+    {"code": "KATI", "pattern": "MHH-MHM-HMH-HHM-MLH", "cn": "卡提希娅", "intro": "你像优雅的棋手，善于隐藏真意。", "desc": "你在光鲜外表下常常有深层谋划。你了解权力与美学，也懂得何时出手。"},
+    {"code": "KANTE", "pattern": "MHM-MHH-HMH-MHM-MLH", "cn": "坎特蕾拉", "intro": "你是一片梦幻的幻海，危险而迷人。", "desc": "你的感受复杂，喜欢把现实与幻想融在一起。你既能捕捉情绪，又能用它们制造力量。"},
+    {"code": "KOLETA", "pattern": "MHM-MHH-HHH-HHH-MMM", "cn": "珂莱塔", "intro": "你是一位优雅的策士，风度中带着决断。", "desc": "你善于用美学和策略塑造局势。你会让自己的每一步都充满目的性。"},
+    {"code": "LINNAI", "pattern": "MHH-MMH-MHH-HMH-MHH", "cn": "琳奈", "intro": "你像绚烂的颜料，热闹而自信。", "desc": "你喜欢把生活变成一场表演，用色彩和速度让每个瞬间都鲜明。你不怕吸引目光。"},
+    {"code": "LINGYANG", "pattern": "HMH-MHM-HHH-HMH-MHH", "cn": "凌阳", "intro": "你是一道热烈的光，真诚而奔放。", "desc": "你会把温暖带给他人，行动上也充满热忱。你愿意为信念踏上陌路。"},
+    {"code": "LUPA", "pattern": "HHH-MHH-HHH-HHH-MMH", "cn": "露帕", "intro": "你是一只燃烧的战狼，热血且无畏。", "desc": "你热衷于竞技与胜利，喜欢拼尽全力。你把每场战斗都当成证明自己的机会。"},
+    {"code": "YANGYANG", "pattern": "MHM-HMH-MHH-HMH-MLH", "cn": "秧秧", "intro": "你像晨光中最初的绿芽，纯真而坚定。", "desc": "你在鸣潮世界中更像一股新生力量，善于发现希望的缝隙，并用温柔的勇气感染身边的人。你不是最锋利的武器，但你能让团队在绝境中看到下一次生机。"}
   ],
   "special": [
-    {
-      "code": "UNKN",
-      "cn": "未知旅人",
-      "intro": "你更像故事之外的未知旅人。",
-      "desc": "当最接近的角色匹配度不足时，说明你更像鸣潮世界里尚未定型的那种存在。你的路线可能更加难以预测。",
-      "trigger": "Fallback when best match similarity < 60%"
-    }
+    {"code": "UNKN", "cn": "未知旅人", "intro": "你更像故事之外的未知旅人。", "desc": "当最接近的角色匹配度不足时，说明你更像鸣潮世界里尚未定型的那种存在。你的路线可能更加难以预测。", "trigger": "Fallback when best match similarity < 60%"}
   ]
 }
