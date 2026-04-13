@@ -5,10 +5,10 @@ import { shuffle, insertAtRandom, insertAfter } from './utils.js'
  */
 export function createQuiz(questions, config, onComplete) {
   const mainQuestions = shuffle(questions.main)
-  const drinkGateQ1 = questions.special.find((q) => q.id === config.drinkGate.questionId)
-  const drinkGateQ2 = questions.special.find((q) => q.id === 'drink_gate_q2')
+  const drinkGateQ1 = questions.special.find((q) => q.id === config.drinkGate.questionId) || null
+  const drinkGateQ2 = questions.special.find((q) => q.id === 'drink_gate_q2') || null
 
-  let queue = insertAtRandom(mainQuestions, drinkGateQ1)
+  let queue = drinkGateQ1 ? insertAtRandom(mainQuestions, drinkGateQ1) : mainQuestions
   let current = 0
   let answers = {}
   let isDrunk = false
@@ -50,7 +50,11 @@ export function createQuiz(questions, config, onComplete) {
     answers[question.id] = option.value
 
     // 酒鬼门：如果选了"饮酒"，插入追问
-    if (question.id === config.drinkGate.questionId && option.value === config.drinkGate.triggerValue) {
+    if (
+      drinkGateQ2 &&
+      question.id === config.drinkGate.questionId &&
+      option.value === config.drinkGate.triggerValue
+    ) {
       queue = insertAfter(queue, question.id, drinkGateQ2)
     }
 
@@ -71,7 +75,7 @@ export function createQuiz(questions, config, onComplete) {
     current = 0
     answers = {}
     isDrunk = false
-    queue = insertAtRandom(shuffle(questions.main), drinkGateQ1)
+    queue = drinkGateQ1 ? insertAtRandom(shuffle(questions.main), drinkGateQ1) : shuffle(questions.main)
     renderQuestion()
   }
 
