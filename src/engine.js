@@ -90,8 +90,10 @@ export function determineResult(userLevels, dimOrder, standardTypes, specialType
 
   const best = rankings[0]
   const drunk = specialTypes.find((t) => t.code === 'DRUNK')
-  const hhhh = specialTypes.find((t) => t.code === 'HHHH')
-
+  const fallback =
+    specialTypes.find((t) => t.code === 'ROVER') ||
+    specialTypes.find((t) => t.code === 'HHHH')
+  
   // 酒鬼覆盖
   if (options.isDrunk && drunk) {
     return {
@@ -102,10 +104,10 @@ export function determineResult(userLevels, dimOrder, standardTypes, specialType
     }
   }
 
-  // 傻乐者兜底
-  if (best.similarity < 60 && hhhh) {
+  // 低匹配度兜底：优先 ROVER，兼容旧 HHHH
+  if (best.similarity < 60 && fallback) {
     return {
-      primary: { ...hhhh, similarity: best.similarity, exact: best.exact },
+      primary: { ...fallback, similarity: best.similarity, exact: best.exact },
       secondary: best,
       rankings,
       mode: 'fallback',
